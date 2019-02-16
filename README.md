@@ -1,4 +1,4 @@
-# linux-lts419-surface for Arch Linux linux-lts kernel
+# linux-surface for Arch Linux linux-lts kernel
 
 - Currently based on Arch Linux linux-lts kernel 4.19.x
 
