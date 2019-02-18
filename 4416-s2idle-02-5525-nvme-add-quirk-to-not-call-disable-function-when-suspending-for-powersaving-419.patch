@@ -1,7 +1,25 @@
-From d97be3f446e15b027512ae55b8484f1791b58225 Mon Sep 17 00:00:00 2001
-From: "Hayataka@kitakar5525" <34676735+kitakar5525@users.noreply.github.com>
-Date: Wed, 13 Feb 2019 17:48:28 +0900
-Subject: [PATCH] nvme-add-quirk-to-not-call-disable-function-when-suspending-for-powersaving-419
+This patch is from
+- [[v2,2/2] nvme: add quirk to not call disable function when suspending - Patchwork](https://patchwork.ozlabs.org/patch/993520/)
+, modified to match the TOSHIBA NVMe disk [1179:010f]
+
+Because we disable D3 state on the TOSHIBA NVMe disk, power consumption between s2idle is high.
+This patch resolves it by not calling `nvme_dev_disable()` on such disks and leave its own APST
+to do the power management.
+
+
+
+Call nvme_dev_disable() function leads to the power consumption goes
+up to 2.2 Watt during suspend-to-idle, and from SK hynix FE, they
+suggest us to use its own APST feature to do the power management during
+s2idle.
+After D3 is diabled and nvme_dev_disable() is not called while
+suspending, the power consumption drops to 0.77 Watt during s2idle.
+
+V2:
+	- replace PCI_DEVICE with PCI_VDEVICE
+	- replace 0x1c5c with SK_HYNIX
+
+Signed-off-by: AceLan Kao <acelan.kao@canonical.com>
 
 ---
  drivers/nvme/host/nvme.h |  5 +++++
