@@ -36,6 +36,9 @@ makepkg -sC
 
 ## Changelog
 
-2019-02-16
+2019-02-18 4.19.23-2-lts419-surface
+- [updating 4.19 patches · jakeday/linux-surface@2f1570d](https://github.com/jakeday/linux-surface/commit/2f1570d509eb7de8330ad4bc01b725c501ab9a8c)
+
+2019-02-16 4.19.23-1-lts419-surface
 - Arch Linux linux-lts: [upgpkg: linux-lts 4.19.23-1](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=41b1b5ca2b5460cf1e1793c4bf9b8a4267a6f794)
 -  jakeday patchset: [updating 4.19 patches · jakeday/linux-surface@5b7dd5a](https://github.com/jakeday/linux-surface/commit/5b7dd5a7a9967c34f04c7108f5c7fbe326e261e2)

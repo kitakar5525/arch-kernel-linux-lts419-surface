@@ -4,13 +4,13 @@
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
 pkgver=4.19.23
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'kmod' 'inetutils' 'bc' 'libelf')
 options=('!strip')
-source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{xz,sign}
+source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz
         'config'         # the main kernel config file
         '60-linux.hook'  # pacman hook for depmod
@@ -29,7 +29,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{xz,sign}
         4416-00-jakeday-0010-surface-dock.patch
         4416-00-jakeday-0011-mwlwifi.patch
         4416-s0ix-01-5525-ipu_patches-419.patch
-        '4416-s0ix-02-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch'
+        '4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch'
         '4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch'
         '4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch'
         4416-s2idle-01-5525-prevent-nvme-from-entering-D3.patch
@@ -44,7 +44,6 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{xz,sign}
         #5526-debug-ipts-add-debugfs-debug_info.patch.dontapply
         '5526-debug-ipts-add-module-params-for-debugging.patch'
         5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
-        5527-modToJake-ipts-revert-5b7dd5a.patch
         5529-gccWarn-ipts-remove-unused-variables.patch
         5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
         5529-gccWarn-mwlwifi-fix-gcc-warning.patch
@@ -53,7 +52,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman (Linux kernel stable release signing key) <greg@kroah.com>
              )
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
-sha256sums=('0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1' # .tar.xz
+sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
             'SKIP' # upstream patch
             'SKIP' # config
@@ -61,7 +60,6 @@ sha256sums=('0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1' #
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
             'SKIP' # .preset
             '36b1118c8dedadc4851150ddd4eb07b1c58ac5bbf3022cc2501a27c2b476da98' # 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -136,7 +134,6 @@ prepare() {
   #patch -p1 -i ../5526-debug-ipts-add-debugfs-debug_info.patch.dontapply
   patch -p1 -i ../'5526-debug-ipts-add-module-params-for-debugging.patch'
   patch -p1 -i ../5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
-  patch -p1 -i ../5527-modToJake-ipts-revert-5b7dd5a.patch
   patch -p1 -i ../5529-gccWarn-ipts-remove-unused-variables.patch
   patch -p1 -i ../5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
   patch -p1 -i ../5529-gccWarn-mwlwifi-fix-gcc-warning.patch
