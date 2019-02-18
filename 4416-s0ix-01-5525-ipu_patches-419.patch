@@ -1,7 +1,35 @@
-From c90eed3512f993627fd1a11e51319ad5fd852217 Mon Sep 17 00:00:00 2001
-From: "Hayataka@kitakar5525" <34676735+kitakar5525@users.noreply.github.com>
-Date: Wed, 13 Feb 2019 18:01:32 +0900
-Subject: [PATCH] 4416-02-01-5525-ipu_patches
+From
+- [201579 – HP Elite x2 1013 G3 unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=201579)
+
+Modified to match firmware location on Arch Linux
+-#define IMGU_FW_NAME			"ipu3-fw.bin"
++#define IMGU_FW_NAME			"intel/ipu3-fw.bin"
+
+Concatenated below patchset:
+0001-v4l-Add-Intel-IPU3-meta-buffer-formats.patch
+0002-doc-rst-Add-Intel-IPU3-documentation.patch
+0003-v4l-Add-Intel-IPU3-meta-data-uAPI.patch
+0004-intel-ipu3-abi-Add-register-definitions-and-enum.patch
+0005-intel-ipu3-abi-Add-structs.patch
+0006-intel-ipu3-mmu-Implement-driver.patch
+0007-intel-ipu3-Implement-DMA-mapping-functions.patch
+0008-intel-ipu3-css-Add-dma-buff-pool-utility-functions.patch
+0009-intel-ipu3-css-Add-support-for-firmware-management.patch
+0010-intel-ipu3-css-Add-static-settings-for-image-pipelin.patch
+0011-intel-ipu3-css-Compute-and-program-ccs.patch
+0012-intel-ipu3-css-Initialize-css-hardware.patch
+0013-intel-ipu3-Add-css-pipeline-programming.patch
+0014-intel-ipu3-Add-v4l2-driver-based-on-media-framework.patch
+0015-intel-ipu3-Add-imgu-top-level-pci-device-driver.patch
+0016-intel-ipu3-add-dual-pipe-support.patch
+0017-v4l-Add-support-for-V4L2_BUF_TYPE_META_OUTPUT.patch
+0018-TEST-FOR-DEBUG-PRINTS.patch
+0019-ipu3-cio2-Allow-probe-to-succeed-if-there-are-no-sen.patch
+0020-platform-x86-intel_pmc_core-Show-Latency-Tolerance-i.patch
+0021-platform-x86-intel_pmc_core-Fix-LTR-IGNORE-Max-offse.patch
+0022-platform-x86-intel_pmc_core-Decode-Snoop-Non-Snoop-L.patch
+0023-platform-x86-intel_pmc_core-convert-to-DEFINE_SHOW_A.patch
+0024-platform-x86-intel_telemetry-convert-to-DEFINE_SHOW_.patch
 
 ---
  Documentation/media/uapi/v4l/meta-formats.rst |    1 +
