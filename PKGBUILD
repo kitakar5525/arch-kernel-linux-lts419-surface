@@ -3,8 +3,8 @@
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
-pkgver=4.19.23
-pkgrel=2
+pkgver=4.19.25
+pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -18,31 +18,25 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         'linux-lts.preset'   # standard config files for mkinitcpio ramdisk
         0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
         4416-00-jakeday-0001-surface-acpi.patch
-        4416-00-jakeday-0002-resume-delay.patch
+        4416-00-jakeday-0002-suspend.patch
         4416-00-jakeday-0003-buttons.patch
         4416-00-jakeday-0004-cameras.patch
         4416-00-jakeday-0005-ipts.patch
         4416-00-jakeday-0006-hid.patch
         4416-00-jakeday-0007-sdcard-reader.patch
         4416-00-jakeday-0008-wifi.patch
-        #4416-00-jakeday-0009-surface3-power.patch.dontapply
+        4416-00-jakeday-0009-surface3-power.patch
         4416-00-jakeday-0010-surface-dock.patch
         4416-00-jakeday-0011-mwlwifi.patch
         4416-s0ix-01-5525-ipu_patches-419.patch
-        '4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch'
-        '4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch'
-        '4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch'
-        4416-s2idle-01-5525-prevent-nvme-from-entering-D3.patch
-        #4416-s2idle-01-5525-prevent-wifi-and-nvme-from-entering-D3.patch.dontapply
-        '4416-s2idle-02-5525-nvme-add-quirk-to-not-call-disable-function-when-suspending-for-powersaving-419.patch'
-        4416-v3-platform-x86-surface3_power-MSHW0011-rev-eng-implementation.patch
+        4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch.patch
+        4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
+        4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
         5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
         5525-mwifiex-change-parameters-permission.patch
-        5525-mwifiex-disable-dump-and-reset.patch
-        '5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch'
+        5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch
         5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
-        #5526-debug-ipts-add-debugfs-debug_info.patch.dontapply
-        '5526-debug-ipts-add-module-params-for-debugging.patch'
+        5526-debug-ipts-add-module-params-for-debugging.patch
         5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
         5529-gccWarn-ipts-remove-unused-variables.patch
         5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
@@ -60,9 +54,6 @@ sha256sums=('SKIP' # linux kernel source file
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
             'SKIP' # .preset
             '36b1118c8dedadc4851150ddd4eb07b1c58ac5bbf3022cc2501a27c2b476da98' # 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-            'SKIP'
-            'SKIP'
-            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -108,31 +99,25 @@ prepare() {
   
   # [5525]Patches
   patch -p1 -i ../4416-00-jakeday-0001-surface-acpi.patch
-  patch -p1 -i ../4416-00-jakeday-0002-resume-delay.patch
+  patch -p1 -i ../4416-00-jakeday-0002-suspend.patch
   patch -p1 -i ../4416-00-jakeday-0003-buttons.patch
   patch -p1 -i ../4416-00-jakeday-0004-cameras.patch
   patch -p1 -i ../4416-00-jakeday-0005-ipts.patch
   patch -p1 -i ../4416-00-jakeday-0006-hid.patch
   patch -p1 -i ../4416-00-jakeday-0007-sdcard-reader.patch
   patch -p1 -i ../4416-00-jakeday-0008-wifi.patch
-  #patch -p1 -i ../4416-00-jakeday-0009-surface3-power.patch.dontapply
+  patch -p1 -i ../4416-00-jakeday-0009-surface3-power.patch
   patch -p1 -i ../4416-00-jakeday-0010-surface-dock.patch
   patch -p1 -i ../4416-00-jakeday-0011-mwlwifi.patch
   patch -p1 -i ../4416-s0ix-01-5525-ipu_patches-419.patch
-  patch -p1 -i ../'4416-s0ix-02-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch'
-  patch -p1 -i ../'4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch'
-  patch -p1 -i ../'4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch'
-  patch -p1 -i ../4416-s2idle-01-5525-prevent-nvme-from-entering-D3.patch
-  #patch -p1 -i ../4416-s2idle-01-5525-prevent-wifi-and-nvme-from-entering-D3.patch.dontapply
-  patch -p1 -i ../'4416-s2idle-02-5525-nvme-add-quirk-to-not-call-disable-function-when-suspending-for-powersaving-419.patch'
-  patch -p1 -i ../4416-v3-platform-x86-surface3_power-MSHW0011-rev-eng-implementation.patch
+  patch -p1 -i ../4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch.patch
+  patch -p1 -i ../4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
+  patch -p1 -i ../4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
   patch -p1 -i ../5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
   patch -p1 -i ../5525-mwifiex-change-parameters-permission.patch
-  patch -p1 -i ../5525-mwifiex-disable-dump-and-reset.patch
-  patch -p1 -i ../'5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch'
+  patch -p1 -i ../5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch
   patch -p1 -i ../5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
-  #patch -p1 -i ../5526-debug-ipts-add-debugfs-debug_info.patch.dontapply
-  patch -p1 -i ../'5526-debug-ipts-add-module-params-for-debugging.patch'
+  patch -p1 -i ../5526-debug-ipts-add-module-params-for-debugging.patch
   patch -p1 -i ../5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
   patch -p1 -i ../5529-gccWarn-ipts-remove-unused-variables.patch
   patch -p1 -i ../5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
