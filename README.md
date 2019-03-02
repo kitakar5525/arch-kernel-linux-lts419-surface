@@ -36,6 +36,9 @@ makepkg -sC
 
 ## Changelog
 
+2019-03-02 4.19.26-1-lts419-surface
+- upgpkg: linux-lts 4.19.26-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=a77b05c2b536a4e35c1cd7926fa7854923b37fd6)
+
 2019-02-26 4.19.25-1-lts419-surface
 - [updating 4.19 patches and config · jakeday/linux-surface@5d21cc8](https://github.com/jakeday/linux-surface/commit/5d21cc824c9b41e65f92fdebcbcccd2181b9393f)
 - upstream update 4.19.25: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=500ebf44cec6f575182b95ca75c32954f1e7231a)

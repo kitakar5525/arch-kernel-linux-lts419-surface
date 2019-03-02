@@ -3,7 +3,7 @@
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
-pkgver=4.19.25
+pkgver=4.19.26
 pkgrel=1
 arch=('x86_64')
 url="https://www.kernel.org/"
