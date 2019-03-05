@@ -36,6 +36,9 @@ makepkg -sC
 
 ## Changelog
 
+2019-03-05 4.19.26-2-lts419-surface
+- Add 5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
+
 2019-03-02 4.19.26-1-lts419-surface
 - upgpkg: linux-lts 4.19.26-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=a77b05c2b536a4e35c1cd7926fa7854923b37fd6)
 

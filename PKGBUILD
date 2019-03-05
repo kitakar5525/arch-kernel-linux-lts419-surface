@@ -4,7 +4,7 @@
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
 pkgver=4.19.26
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -38,6 +38,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
         5526-debug-ipts-add-module-params-for-debugging.patch
         5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
+        5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
         5529-gccWarn-ipts-remove-unused-variables.patch
         5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
         5529-gccWarn-mwlwifi-fix-gcc-warning.patch
@@ -54,6 +55,7 @@ sha256sums=('SKIP' # linux kernel source file
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
             'SKIP' # .preset
             '36b1118c8dedadc4851150ddd4eb07b1c58ac5bbf3022cc2501a27c2b476da98' # 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -119,6 +121,7 @@ prepare() {
   patch -p1 -i ../5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
   patch -p1 -i ../5526-debug-ipts-add-module-params-for-debugging.patch
   patch -p1 -i ../5527-modToJake-ipts-change-default-value-of-enable_guc-to-auto.patch
+  patch -p1 -i ../5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
   patch -p1 -i ../5529-gccWarn-ipts-remove-unused-variables.patch
   patch -p1 -i ../5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
   patch -p1 -i ../5529-gccWarn-mwlwifi-fix-gcc-warning.patch
