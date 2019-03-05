@@ -4,7 +4,7 @@
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
 pkgver=4.19.26
-pkgrel=2
+pkgrel=3
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -29,7 +29,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         4416-00-jakeday-0010-surface-dock.patch
         4416-00-jakeday-0011-mwlwifi.patch
         4416-s0ix-01-5525-ipu_patches-419.patch
-        4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch.patch
+        4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch
         4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
         4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
         5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
@@ -112,7 +112,7 @@ prepare() {
   patch -p1 -i ../4416-00-jakeday-0010-surface-dock.patch
   patch -p1 -i ../4416-00-jakeday-0011-mwlwifi.patch
   patch -p1 -i ../4416-s0ix-01-5525-ipu_patches-419.patch
-  patch -p1 -i ../4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch.patch
+  patch -p1 -i ../4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch
   patch -p1 -i ../4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
   patch -p1 -i ../4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
   patch -p1 -i ../5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
@@ -152,12 +152,15 @@ prepare() {
 
   # rewrite configuration
   yes "" | make config >/dev/null
+
+  # [5525]
+  cp .config ../config_new
 }
 
 build() {
   cd ${_srcname}
 
-  make ${MAKEFLAGS} LOCALVERSION= bzImage modules
+  make -s ${MAKEFLAGS} LOCALVERSION= bzImage modules
 }
 
 _package() {
