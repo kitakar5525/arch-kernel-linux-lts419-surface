@@ -7,6 +7,8 @@
 - PKGBUILD is from [core/linux-lts](https://git.archlinux.org/svntogit/packages.git/log/trunk?h=packages/linux-lts)
 	- `linux.preset` is modified not to create fallback initramfs. If you need it, rename `linux.preset.orig` to `linux.preset`
 
+- I may change some kernel configs. See [config.diff](config.diff)
+
 See also:
 - [kitakar5525/note-linux-on-surface-book-1: Notes to use Linux on Surface Book 1 with Performance Base](https://github.com/kitakar5525/note-linux-on-surface-book-1)
 - [kitakar5525/note-linux-on-surface-3: Notes to use Linux on Surface 3](https://github.com/kitakar5525/note-linux-on-surface-3)
@@ -34,27 +36,21 @@ makepkg -sC
 
 
 
-## Changelog
+## Status
 
-2019-03-05 4.19.26-2-lts419-surface
-- Add 5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
-
-2019-03-02 4.19.26-1-lts419-surface
+Arch Linux PKGBUILD
 - upgpkg: linux-lts 4.19.26-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=a77b05c2b536a4e35c1cd7926fa7854923b37fd6)
 
-2019-02-26 4.19.25-1-lts419-surface
+jakeday patches
 - [updating 4.19 patches and config · jakeday/linux-surface@5d21cc8](https://github.com/jakeday/linux-surface/commit/5d21cc824c9b41e65f92fdebcbcccd2181b9393f)
-- upstream update 4.19.25: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=500ebf44cec6f575182b95ca75c32954f1e7231a)
 
-Merged into jakeday repository:
-- prevent-nvme-from-entering-D3.patch
-- nvme-add-quirk-to-not-call-disable-function-when-suspending-for-powersaving.patch
-- v3-platform-x86-surface3_power-MSHW0011-rev-eng-implementation.patch
-- mwifiex-disable-dump-and-reset.patch
+Improve s0ix
+- 4416-s0ix-01-5525-ipu_patches-419.patch, [201579 – HP Elite x2 1013 G3 unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=201579)
+- 4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch, [[00/10] ICL support and other enhancements for PMC Core - Patchwork](https://lore.kernel.org/patchwork/cover/1037757/)
 
-2019-02-18 4.19.23-2-lts419-surface
-- [updating 4.19 patches · jakeday/linux-surface@2f1570d](https://github.com/jakeday/linux-surface/commit/2f1570d509eb7de8330ad4bc01b725c501ab9a8c)
+Improve s0ix on Cherry Trail on 4.19
+- [platform/x86: Add Intel AtomISP2 dummy / power-management driver · torvalds/linux@49ad712](https://github.com/torvalds/linux/commit/49ad712afa88c502831d37f7089d98eac441fb80)
+- [pwm: lpss: Add ACPI HID for second PWM controller on Cherry Trail dev… · torvalds/linux@1688c87](https://github.com/torvalds/linux/commit/1688c8717118f37191d824862a006c8373d261de)
 
-2019-02-16 4.19.23-1-lts419-surface
-- Arch Linux linux-lts: [upgpkg: linux-lts 4.19.23-1](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=41b1b5ca2b5460cf1e1793c4bf9b8a4267a6f794)
--  jakeday patchset: [updating 4.19 patches · jakeday/linux-surface@5b7dd5a](https://github.com/jakeday/linux-surface/commit/5b7dd5a7a9967c34f04c7108f5c7fbe326e261e2)
+Surface 3 sound fix for OEMB devices
+- 5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch
