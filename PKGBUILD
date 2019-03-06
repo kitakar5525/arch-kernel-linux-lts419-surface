@@ -4,7 +4,7 @@
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
 pkgver=4.19.26
-pkgrel=3
+pkgrel=4
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -29,7 +29,8 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         4416-00-jakeday-0010-surface-dock.patch
         4416-00-jakeday-0011-mwlwifi.patch
         4416-s0ix-01-5525-ipu_patches-419.patch
-        4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch
+        4416-s0ix-02-v3-ICL-support-and-other-enhancements-for-PMC-Core-419.patch
+        4416-s0ix-03-5525-platform-x86-intel_pmc_core-Quirk-to-ignore-XTAL-shutdown-Add-SB1.patch
         4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
         4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
         5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
@@ -55,6 +56,7 @@ sha256sums=('SKIP' # linux kernel source file
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
             'SKIP' # .preset
             '36b1118c8dedadc4851150ddd4eb07b1c58ac5bbf3022cc2501a27c2b476da98' # 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -112,7 +114,8 @@ prepare() {
   patch -p1 -i ../4416-00-jakeday-0010-surface-dock.patch
   patch -p1 -i ../4416-00-jakeday-0011-mwlwifi.patch
   patch -p1 -i ../4416-s0ix-01-5525-ipu_patches-419.patch
-  patch -p1 -i ../4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch
+  patch -p1 -i ../4416-s0ix-02-v3-ICL-support-and-other-enhancements-for-PMC-Core-419.patch
+  patch -p1 -i ../4416-s0ix-03-5525-platform-x86-intel_pmc_core-Quirk-to-ignore-XTAL-shutdown-Add-SB1.patch
   patch -p1 -i ../4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
   patch -p1 -i ../4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
   patch -p1 -i ../5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch

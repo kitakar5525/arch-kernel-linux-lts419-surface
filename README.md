@@ -46,7 +46,7 @@ jakeday patches
 
 Improve s0ix
 - 4416-s0ix-01-5525-ipu_patches-419.patch, [201579 – HP Elite x2 1013 G3 unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=201579)
-- 4416-s0ix-02-5525-ICL-support-and-other-enhancements-for-PMC-Core-added-SB1.patch, [[00/10] ICL support and other enhancements for PMC Core - Patchwork](https://lore.kernel.org/patchwork/cover/1037757/)
+- [[v3,0/5] ICL support and other enhancements for PMC Core - Patchwork](https://patchwork.kernel.org/cover/10812541/)
 
 Improve s0ix on Cherry Trail on 4.19
 - [platform/x86: Add Intel AtomISP2 dummy / power-management driver · torvalds/linux@49ad712](https://github.com/torvalds/linux/commit/49ad712afa88c502831d37f7089d98eac441fb80)
