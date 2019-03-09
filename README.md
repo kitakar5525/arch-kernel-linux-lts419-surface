@@ -39,10 +39,10 @@ makepkg -sC
 ## Status
 
 Arch Linux PKGBUILD
-- upgpkg: linux-lts 4.19.26-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=a77b05c2b536a4e35c1cd7926fa7854923b37fd6)
+- upgpkg: linux-lts 4.19.27-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=76a4922e0236cd10eeed71a97cfe40930740eea7)
 
 jakeday patches
-- [updating 4.19 patches and config · jakeday/linux-surface@5d21cc8](https://github.com/jakeday/linux-surface/commit/5d21cc824c9b41e65f92fdebcbcccd2181b9393f)
+- [updating patches · jakeday/linux-surface@e09d9e1](https://github.com/jakeday/linux-surface/commit/e09d9e11f58281aec3780849cdaf9336579a4169)
 
 Improve s0ix
 - 4416-s0ix-01-5525-ipu_patches-419.patch, [201579 – HP Elite x2 1013 G3 unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=201579)
