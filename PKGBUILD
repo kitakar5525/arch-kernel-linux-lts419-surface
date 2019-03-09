@@ -3,8 +3,10 @@
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
 _srcname=linux-4.19
+_patch_release_tag=1.0
+_patch_linux_ver=419
 pkgver=4.19.27
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -17,31 +19,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
         '90-linux.hook'  # pacman hook for initramfs regeneration
         'linux-lts.preset'   # standard config files for mkinitcpio ramdisk
         0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-        4416-00-jakeday-0001-surface-acpi.patch
-        4416-00-jakeday-0002-suspend.patch
-        4416-00-jakeday-0003-buttons.patch
-        4416-00-jakeday-0004-cameras.patch
-        4416-00-jakeday-0005-ipts.patch
-        4416-00-jakeday-0006-hid.patch
-        4416-00-jakeday-0007-sdcard-reader.patch
-        4416-00-jakeday-0008-wifi.patch
-        4416-00-jakeday-0009-surface3-power.patch
-        4416-00-jakeday-0010-surface-dock.patch
-        4416-00-jakeday-0011-mwlwifi.patch
-        4416-s0ix-01-5525-ipu_patches-419.patch
-        4416-s0ix-02-v3-ICL-support-and-other-enhancements-for-PMC-Core-419.patch
-        4416-s0ix-03-5525-platform-x86-intel_pmc_core-Quirk-to-ignore-XTAL-shutdown-Add-SB1.patch
-        4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
-        4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
-        5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
-        5525-mwifiex-change-parameters-permission.patch
-        5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch
-        5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
-        5526-debug-ipts-add-module-params-for-debugging.patch
-        5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
-        5529-gccWarn-ipts-remove-unused-variables.patch
-        5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
-        5529-gccWarn-mwlwifi-fix-gcc-warning.patch
+        kitakar5525-linux-surface-patches-v${_patch_release_tag}.tar.gz::https://github.com/kitakar5525/linux-surface-patches/archive/v${_patch_release_tag}.tar.gz # kitakar5525/linux-surface-patches
 )
 validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torvalds@linux-foundation.org>
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman (Linux kernel stable release signing key) <greg@kroah.com>
@@ -55,31 +33,7 @@ sha256sums=('SKIP' # linux kernel source file
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
             'SKIP' # .preset
             '36b1118c8dedadc4851150ddd4eb07b1c58ac5bbf3022cc2501a27c2b476da98' # 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
+            'SKIP' # kitakar5525/linux-surface-patches
 )
 
 _kernelname=${pkgbase#linux}
@@ -99,32 +53,16 @@ prepare() {
   # disable USER_NS for non-root users by default
   patch -Np1 -i ../0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
   
-  # [5525]Patches
-  patch -p1 -i ../4416-00-jakeday-0001-surface-acpi.patch
-  patch -p1 -i ../4416-00-jakeday-0002-suspend.patch
-  patch -p1 -i ../4416-00-jakeday-0003-buttons.patch
-  patch -p1 -i ../4416-00-jakeday-0004-cameras.patch
-  patch -p1 -i ../4416-00-jakeday-0005-ipts.patch
-  patch -p1 -i ../4416-00-jakeday-0006-hid.patch
-  patch -p1 -i ../4416-00-jakeday-0007-sdcard-reader.patch
-  patch -p1 -i ../4416-00-jakeday-0008-wifi.patch
-  patch -p1 -i ../4416-00-jakeday-0009-surface3-power.patch
-  patch -p1 -i ../4416-00-jakeday-0010-surface-dock.patch
-  patch -p1 -i ../4416-00-jakeday-0011-mwlwifi.patch
-  patch -p1 -i ../4416-s0ix-01-5525-ipu_patches-419.patch
-  patch -p1 -i ../4416-s0ix-02-v3-ICL-support-and-other-enhancements-for-PMC-Core-419.patch
-  patch -p1 -i ../4416-s0ix-03-5525-platform-x86-intel_pmc_core-Quirk-to-ignore-XTAL-shutdown-Add-SB1.patch
-  patch -p1 -i ../4416-s0ix-Cherry-Trail-platform-x86:-Add-Intel-AtomISP2-dummy-driver-for-power-management-419.patch
-  patch -p1 -i ../4416-s0ix-Cherry-Trail-pwm:-lpss:-Add-ACPI-HID-for-second-PWM-controller-on-Cherry-Trail-devices-419.patch
-  patch -p1 -i ../5525-hid-add-Surface-3-JP-Type-Cover-and-Surface-Book-JP-.patch
-  patch -p1 -i ../5525-mwifiex-change-parameters-permission.patch
-  patch -p1 -i ../5525-sound-add-dmi-match-OEMB-for-affected-surface-3.patch
-  patch -p1 -i ../5526-debug-intel_pmc_core-debug-quirk_xtal_ignore.patch
-  patch -p1 -i ../5526-debug-ipts-add-module-params-for-debugging.patch
-  patch -p1 -i ../5527-modToJake-ipts-revert-suspend-resume-mechanism.patch
-  patch -p1 -i ../5529-gccWarn-ipts-remove-unused-variables.patch
-  patch -p1 -i ../5529-gccWarn-ipts-uncomment-downstream_hpd_needs_d0.patch
-  patch -p1 -i ../5529-gccWarn-mwlwifi-fix-gcc-warning.patch
+  # [5525] apply patches from kitakar5525/linux-surface-patches
+  patch_path="../linux-surface-patches-${_patch_release_tag}/patch-${_patch_linux_ver}/"
+  if [ ! -e $patch_path ]; then # let `makepkg` fail if path not exist
+    echo "$patch_path: No such file or directory"
+    return 1;
+  fi
+  for p in $(find $patch_path -name "*.patch" | sort); do
+    echo "applying $p"
+    patch -Np1 -i $p
+  done
 
   cp -Tf ../config .config
 
@@ -153,7 +91,7 @@ prepare() {
   # rewrite configuration
   yes "" | make config >/dev/null
 
-  # [5525]
+  # [5525] copy newly generated kernel config to $src
   cp .config ../config_new
 }
 
