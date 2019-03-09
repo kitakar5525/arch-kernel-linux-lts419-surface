@@ -19,7 +19,7 @@ See also:
 
 ```bash
 git clone --depth 1 https://github.com/kitakar5525/arch-kernel-linux-lts419-surface
-cd arch-kernel-linux-surface
+cd arch-kernel-linux-lts419-surface
 makepkg -sC
 ```
 
