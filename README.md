@@ -24,3 +24,13 @@ git clone --depth 1 https://github.com/kitakar5525/arch-kernel-linux-lts419-surf
 cd arch-kernel-linux-lts419-surface
 makepkg -sC
 ```
+
+
+
+## Status
+
+Arch Linux linux-lts version
+- upgpkg: linux-lts 4.19.28-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=55c67472fa976a7305d52ffkitakar5525/linux-surface-patches0d5e6d9e5726a9077)
+
+kitakar5525/linux-surface-patches version
+- [kitakar5525/linux-surface-patches at v1.0](https://github.com/kitakar5525/linux-surface-patches/tree/v1.0)

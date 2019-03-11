@@ -2,11 +2,12 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-_srcname=linux-4.19
+pkgver=4.19.28
+pkgrel=1
 _patch_release_tag=1.0
+
+_srcname=linux-4.19
 _patch_linux_ver=419
-pkgver=4.19.27
-pkgrel=2
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
