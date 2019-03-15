@@ -2,9 +2,9 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-pkgver=4.19.28
+pkgver=4.19.29
 pkgrel=1
-_patch_release_tag=1.0
+_patch_release_tag=1.1
 
 _srcname=linux-4.19
 _patch_linux_ver=419
@@ -13,7 +13,8 @@ url="https://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'kmod' 'inetutils' 'bc' 'libelf')
 options=('!strip')
-source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign}
+source=(#https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{xz,sign}
+        https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign} # use .tar.gz instead
         https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz
         'config'         # the main kernel config file
         '60-linux.hook'  # pacman hook for depmod
@@ -28,7 +29,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
 sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
-            'SKIP' # upstream patch
+            '7615c07849acdc9c901b238ca9dbc4c92dc837c694a3f54341a773f8c5b38b64' # upstream patch
             'SKIP' # config
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21' # .hook
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook

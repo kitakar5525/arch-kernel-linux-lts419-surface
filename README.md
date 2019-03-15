@@ -30,7 +30,7 @@ makepkg -sC
 ## Status
 
 Arch Linux linux-lts version
-- upgpkg: linux-lts 4.19.28-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=55c67472fa976a7305d52ffkitakar5525/linux-surface-patches0d5e6d9e5726a9077)
+- upgpkg: linux-lts 4.19.29-1: [svntogit/packages.git - Git clone of the 'packages' repository](https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=a7a513e585262b4611f87fccf81b611320e54b3b)
 
 kitakar5525/linux-surface-patches version
-- [kitakar5525/linux-surface-patches at v1.0](https://github.com/kitakar5525/linux-surface-patches/tree/v1.0)
+- [Release v1.1 · kitakar5525/linux-surface-patches](https://github.com/kitakar5525/linux-surface-patches/releases/tag/v1.1)
