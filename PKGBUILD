@@ -2,12 +2,12 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-pkgver=4.19.29
+pkgver=4.19.31
 pkgrel=1
-_patch_release_tag=1.1
+_patch_release_tag=1.2.1
 
 _srcname=linux-4.19
-_patch_linux_ver=419
+_patch_linux_ver=4.19
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
@@ -29,7 +29,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
 sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
-            '7615c07849acdc9c901b238ca9dbc4c92dc837c694a3f54341a773f8c5b38b64' # upstream patch
+            'cc9d42fc2459a75d38ccc0dc7a9ae4d0314e063f745c0fa2d8cb5e284e40628c' # upstream patch
             'SKIP' # config
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21' # .hook
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
