@@ -2,19 +2,18 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-pkgver=4.19.32
+pkgver=4.19.38
 pkgrel=1
-_patch_release_tag=1.2.1
+_patch_release_tag=1.4.2 # release tag of kitakar5525/linux-surface-patches
 
 _srcname=linux-4.19
-_patch_linux_ver=4.19
+_patch_linux_ver=4.19 # patch directory name of kitakar5525/linux-surface-patches
 arch=('x86_64')
 url="https://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'kmod' 'inetutils' 'bc' 'libelf')
 options=('!strip')
-source=(#https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{xz,sign}
-        https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign} # use .tar.gz instead
+source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign} # use .tar.gz instead
         https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz
         'config'         # the main kernel config file
         '60-linux.hook'  # pacman hook for depmod
@@ -29,7 +28,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
 sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
-            '85a7e12b38575199d2ed889b7cf108b7740f20f1fe4d967f1c338df1682b4259' # upstream patch
+            'facb825a73adc3b0921edbeea3243c7f7b5d868e7330d0c081cb624f1d22d4e0' # upstream patch
             'SKIP' # config
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21' # .hook
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
@@ -100,7 +99,7 @@ prepare() {
 build() {
   cd ${_srcname}
 
-  make -s ${MAKEFLAGS} LOCALVERSION= bzImage modules
+  make ${MAKEFLAGS} LOCALVERSION= bzImage modules
 }
 
 _package() {
