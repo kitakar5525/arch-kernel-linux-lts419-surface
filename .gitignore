@@ -6,3 +6,4 @@ nohup.out
 *.tar.xz
 *.xz
 *.gz
+src
