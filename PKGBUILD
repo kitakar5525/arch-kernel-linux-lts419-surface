@@ -2,9 +2,9 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-pkgver=4.19.56
+pkgver=4.19.57
 pkgrel=1
-_patch_release_tag=2.0 # release tag of kitakar5525/linux-surface-patches
+_patch_release_tag=2.1 # release tag of kitakar5525/linux-surface-patches
 
 _srcname=linux-4.19
 _patch_linux_ver=4.19 # patch directory name of kitakar5525/linux-surface-patches
@@ -21,7 +21,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.{gz,sign} #
         'linux-lts.preset'   # standard config files for mkinitcpio ramdisk
         0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
         0002-ZEN-Add-CONFIG-for-unprivileged_userns_clone.patch
-        linux-surface-patches-2.0-testing.tar.gz
+        kitakar5525-linux-surface-patches-v${_patch_release_tag}.tar.gz::https://github.com/kitakar5525/linux-surface-patches/archive/v${_patch_release_tag}.tar.gz # kitakar5525/linux-surface-patches
 )
 validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torvalds@linux-foundation.org>
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman (Linux kernel stable release signing key) <greg@kroah.com>
@@ -29,7 +29,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
 sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
-            '2898643808d24533976baefb94b9f33320337ec87fb3e28a423d9c46184b41db' # upstream patch
+            'b4f5e4d550a018f900c2b943bf544dcdb62a658d6ca5cbab3f620e4c7324885b' # upstream patch
             'SKIP' # config
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21' # .hook
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
@@ -58,7 +58,7 @@ prepare() {
   patch -Np1 -i ../0002-ZEN-Add-CONFIG-for-unprivileged_userns_clone.patch
   
   # [5525] apply patches from kitakar5525/linux-surface-patches
-  patch_path="../linux-surface-patches-${_patch_release_tag}-testing/patch-${_patch_linux_ver}/"
+  patch_path="../linux-surface-patches-${_patch_release_tag}/patch-${_patch_linux_ver}/"
   if [ ! -e $patch_path ]; then # let `makepkg` fail if path not exist
     echo "$patch_path: No such file or directory"
     return 1;
