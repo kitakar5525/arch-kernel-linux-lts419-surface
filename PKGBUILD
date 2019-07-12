@@ -2,9 +2,9 @@
 
 #pkgbase=linux-lts
 pkgbase=linux-lts419-surface
-pkgver=4.19.57
-pkgrel=2
-_patch_release_tag=2.2.1 # release tag of kitakar5525/linux-surface-patches
+pkgver=4.19.58
+pkgrel=1
+_patch_release_tag=2.5 # release tag of kitakar5525/linux-surface-patches
 
 _srcname=linux-4.19
 _patch_linux_ver=4.19 # patch directory name of kitakar5525/linux-surface-patches
@@ -29,7 +29,7 @@ validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds <torva
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
 sha256sums=('SKIP' # linux kernel source file
             'SKIP' # .tar.sign
-            'b4f5e4d550a018f900c2b943bf544dcdb62a658d6ca5cbab3f620e4c7324885b' # upstream patch
+            '018584229e0522aa94cb7af7b7f0775cf42ae3873a8d4cbc8715d807719bfad5' # upstream patch
             'SKIP' # config
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21' # .hook
             '75f99f5239e03238f88d1a834c50043ec32b1dc568f2cc291b07d04718483919' # .hook
