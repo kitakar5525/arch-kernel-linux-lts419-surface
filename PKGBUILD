@@ -4,7 +4,7 @@
 pkgbase=linux-lts419-surface
 pkgver=4.19.74
 pkgrel=1
-_patch_release_tag=3.3.1 # release tag of kitakar5525/linux-surface-patches
+_patch_release_tag=3.4 # release tag of kitakar5525/linux-surface-patches
 
 _srcname=linux-4.19
 _patch_linux_ver=4.19 # patch directory name of kitakar5525/linux-surface-patches
