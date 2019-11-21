@@ -13,7 +13,7 @@ makedepends=(
 )
 options=('!strip')
 _srcname=linux-$pkgver
-_patch_release_tag=master # release tag of kitakar5525/linux-surface-patches
+_patch_release_tag=v3.5 # release tag of kitakar5525/linux-surface-patches
 source=(
   https://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.{gz,sign}
   config         # the main kernel config file
