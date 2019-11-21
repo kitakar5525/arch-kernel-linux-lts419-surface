@@ -1,4 +1,4 @@
-# Maintainer: Andreas Radke <andyrtr@archlinux.org>
+# Maintainer: kitakar5525 (Hayataka) <kitakar@gmail.com>
 
 pkgbase=linux-lts
 pkgver=4.19.87
