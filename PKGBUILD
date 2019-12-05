@@ -25,11 +25,11 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v4.x/sha256sums.asc
-sha256sums=('SKIP'
+sha256sums=('854dff47255b38a3677f1b41a098baf877ab2ebbc4abf2e47b227a57dbfa9cb7'
             'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP')
+            '3ae20bf08beb968cb9e2eac7cdae9044ee3060e997e080ba345310e73ccd6387'
+            'a13581d3c6dc595206e4fe7fcf6b542e7a1bdbe96101f0f010fc5be49f99baf2'
+            'b13703d584521d93f4bc40ec04213a12b480897a594e8a450b20c840db15f675')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
